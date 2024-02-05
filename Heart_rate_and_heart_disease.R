@@ -16,13 +16,21 @@ class(hd_dataset$sex)
 hd_dataset <- hd_dataset %>% 
   mutate(sex = factor(sex, levels = c(0, 1), labels = c("female", "male")))
 
-#Identifying the predictors of heart disease using the sex and age variables
+#Identifying the predictors of heart disease using the sex, age, and thalach variables
 
 #Sex:Chi-squared test
 contingency_table <- table(hd_dataset$sex, hd_dataset$hd)
 contingency_table
 
 hd_sex <- chisq.test(contingency_table)
+
+#age: t-test
+hd_age <- t.test(age ~ hd, data = hd_dataset)
+
+#thalach: t-test
+hd_thalach <- t.test(thalach ~ hd, data = hd_dataset)
+
+
 
 
 
