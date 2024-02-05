@@ -1,1 +1,1 @@
-This project uses the Cleveland heart disease dataset to run statistical tests and regression models to examine how heart rate is associated with heart disease.
+This project uses the [Cleveland heart disease dataset](https://www.kaggle.com/datasets/aavigan/cleveland-clinic-heart-disease-dataset?select=processed_cleveland.csv) to run statistical tests and regression models to examine how heart rate is associated with heart disease.
