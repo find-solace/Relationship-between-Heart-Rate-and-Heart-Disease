@@ -31,6 +31,51 @@ hd_age <- t.test(age ~ hd, data = hd_dataset)
 hd_thalach <- t.test(thalach ~ hd, data = hd_dataset)
 
 
+## Visualizing the Relationship between age and hd
+
+#re-coding hd as "No disease and disease"
+
+hd_dataset <- hd_dataset %>%
+  mutate(hd_labelled = ifelse(hd == 0, "No Disease", "Disease"))
+
+ggplot(data = hd_dataset, aes(x = hd_labelled, y = age)) + geom_boxplot()
+
+#The median for individuals with the disease is at a higher age compared to the median
+#for individuals with no disease, which is at a lower age.
+#Most individuals with hd are also older than 50 years.
+
+##Visualizing the relationship between sex and hd
+
+ggplot(data = hd_dataset, aes(x = hd_labelled, fill = sex)) + 
+  geom_bar(position = "fill") + ylab("Sex %")
+
+#More than three quarters of individuals with hd are male. The gender proportion is nearly equal
+#among individuals with no disease, but males are also slightly more.
+
+##Visualizing the relationship between thalach and hd
+ggplot(data = hd_dataset, aes(x = hd_labelled, y = thalach)) + geom_boxplot()
+
+#The disease is distributed more among individuals with lower thalach,
+#while individuals with no disease generally have higher thalach.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
